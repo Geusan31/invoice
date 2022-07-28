@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Acumin-Pro';
+            src: url('font/Acumin-RPro.otf');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Acumin-Pro', sans-serif;
+        }
+
+        .container-img {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 60px;
+            /* padding-top: 30px; */
+            padding-right: 15em;
+            align-items: center;
+            background-color: rgb(53, 53, 53);
+            color: #dadada;
+            height: 15em;
+        }
+
+        .container-img img {
+            width: 270px;
+            height: 70px;
+        }
+
+        .container-p {
+            padding-top: 20px;
+        }
+        
+        .container-p .satu {
+            font-size: 20px;
+            width: 13em;
+            margin-bottom: 12px;
+        }
+
+        i {
+            margin-right: 10px;
+            color: #dadada;
+        }
+
+        .dua {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #a3a3a3;
+        }
+
+        .tiga {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #a3a3a3;
+        }
+
+        .empat {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #a3a3a3;
+        }
+
+        .container-title {
+            padding: 5px;
+            width: 28em;
+            margin-top: -40px;
+            margin-left: -5px;
+            transform: translateX(-200px);
+            transform: skewX(-30deg);
+            text-align: center;
+            background-color: rgb(53, 53, 53);
+        }
+
+        .title {
+            transform: skewX(30deg);
+            letter-spacing: .7rem;
+            color: #eee;
+            font-size: 4rem;
+        }
+
+        .info1 {
+            padding-left: 70px;
+            width: 25rem;
+            margin-top: 30px;
+            line-height: 30px;
+        }
+
+        /* .pertama {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kedua {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ketiga {
+            display: flex;
+            justify-content: space-between;
+        } */
+
+        .infone {
+            display: flex;
+            padding-right: 20em;
+            justify-content: space-between;
+            margin-bottom: 3em;
+        }
+
+        .info2 h3 {
+            font-size: 1.5em;
+        }
+
+        .info2 p {
+            width: 13em;
+            font-size: 14px;
+        }
+
+        .desc {
+            display: flex;
+            margin-left: -17px;
+        }
+
+        .item-desc {
+            width: 45em;
+            padding: 16px 8px 8px;
+            background-color:rgb(53, 53, 53);;
+            color: #eee;
+            padding-left: 85px;
+            transform: skewX(-30deg);
+        }
+
+        .item-desc p {
+            transform: skewX(30deg);
+            font-size: 25px;
+        }
+
+        .price-desc {
+            text-align: center;
+            width: 9em;
+            padding: 16px 8px 8px;
+            background-color: rgb(207, 205, 205);
+            color:rgb(53, 53, 53);
+            border-right: 5px solid rgb(53, 53, 53);
+            transform: skewX(-30deg);
+        }
+
+        .price-desc p {
+            transform: skewX(30deg);
+            font-size: 25px;
+        }
+
+        .qty-desc {
+            text-align: center;
+            width: 9em;
+            padding: 16px 8px 8px;
+            background-color: rgb(207, 205, 205);
+            color:rgb(53, 53, 53);
+            border-right: 5px solid rgb(53, 53, 53);
+            transform: skewX(-30deg);
+        }
+
+        .qty-desc p {
+            transform: skewX(30deg);
+            font-size: 25px;
+        }
+
+        .total-desc {
+            text-align: center;
+            width: 15em;
+            margin-left: -15px;
+            padding: 16px 8px 8px;
+            background-color: rgb(207, 205, 205);
+            color:rgb(53, 53, 53);
+            /* border-right: 5px solid rgb(53, 53, 53); */
+            /* transform: skewX(-30deg); */
+            padding-right: 80px;
+        }
+
+        .total-desc p {
+            /* transform: skewX(30deg); */
+            font-size: 25px;
+        }
+
+        .barang {
+            padding: 0 70px;
+        }
+
+        .barang1 {
+            display: flex;
+            align-items: center;
+        }
+
+        .stuff {
+            width: 42em;
+            /* background-color: #a3a3a3; */
+            padding: 15px 0;
+            line-height: 22px;
+        }
+
+        .judul-barang {
+            font-size: 18px;
+        }
+        
+        .stuff1 {
+            width: 8em;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+            /* background-color: #8d6060; */
+        }
+
+        .stuff2 {
+            width: 9em;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+            /* background-color: #612626; */
+        }
+
+        .stuff3 {
+            width: 12em;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+            /* background-color: #612626; */
+        }
+
+        .down {
+            display: flex;
+            margin: 15px 0;
+        }
+
+        .space {
+            width: 49em;
+        }
+
+        .total-barang {
+            display: flex;
+        }
+
+        .sub-total {
+            width: 12em;
+            line-height: 25px;
+            /* background-color: #a3a3a3; */
+        }
+
+        .harga {
+            width: 13.5em;
+            line-height: 25px;
+            text-align: right;
+            /* background-color: aqua; */
+        }
+
+        .desc-down {
+            padding-left: 70px;
+            display: flex;
+        }
+
+        .desc-keterangan {
+            width: 41em;
+            color: #a3a3a3;
+        }
+
+        .desc-keterangan b{
+            color: rgb(53, 53, 53);
+        }
+
+        .desc-total {
+            display: flex;
+        }
+
+        .total {
+            text-align: center;
+            width: 16em;
+            padding: 15px 8px 8px 10px;
+            background-color: rgb(207, 205, 205);
+            color:rgb(53, 53, 53);
+            /* border-right: 5px solid rgb(53, 53, 53); */
+            transform: skewX(-30deg);
+        }
+
+        .total p {
+            transform: skewX(30deg);
+            font-size: 25px;
+            margin: auto 0;
+            margin-right: 50px;
+        }
+
+        .harga-total {
+            text-align: center;
+            width: 19em;
+            padding: 15px 8px 8px 10px;
+            background-color: rgb(207, 205, 205);
+            color:rgb(53, 53, 53);
+            /* border-right: 5px solid rgb(53, 53, 53); */
+            /* transform: skewX(-30deg); */
+            padding-right: 50px;
+            margin-left: -16px;
+        }
+
+        .harga-total p {
+            /* transform: skewX(30deg); */
+            font-size: 25px;
+            /* margin-left: -1px; */
+        }
+
+        .note {
+            margin: 1em 0 0 0;
+            color: rgb(53, 53, 53);
+        }
+
+        .ib {
+            padding-left: 70px;
+            margin-top: 5em;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container-img">
+            <img src="img/img3.png" alt="logo">
+            <div class="container-p">
+                <p class="satu">Jalan Industri Raya Jababeka No. 22</p>
+                <p class="dua"><i class="fa-solid fa-phone"></i>Phone : (021) 4020-7898</p>
+                <p class="tiga"><i class="fa-solid fa-envelope"></i>Email : ranega_market@gmail.com</p>
+                <p class="empat"><i class="fa-solid fa-earth-americas"></i>Website : ranegamarket.com</p>
+            </div>
+        </div>
+        <div class="container-title">
+            <h1 class="title">Invoice.</h1>
+        </div>
+    </section>
+    <section>
+        <div class="infone">
+            <div class="info1">
+                <div class="pertama">
+                    <!-- <span>Invoice No.</span>
+                    <span>:0012345</span> -->
+                    <pre><b>Invoice No.</b>                    : 0012345</pre>
+                </div>
+                <hr>
+                <div class="kedua">
+                    <!-- <span>Account No.</span>
+                    <span>:5566778899</span> -->
+                    <pre><b>Account No.</b>                    : 5566778899</pre>
+                </div>
+                <hr>
+                <div class="ketiga">
+                    <!-- <span>Invoice Date.</span>
+                    <span>:0001025/JUL/2022</span> -->
+                    <pre><b>Invoice Date</b>                   : 0001025/JUL/2022</pre>
+                </div>
+            </div>
+            <div class="info2">
+                <h3>Dev Vision LTD</h3>
+                <p class="alamat">Jalan Industri Raya Jababeka No. 22</p>
+                <br>
+                <p><b>P:</b> (021) 1234-5678</p>
+                <p><b>M:</b> ranegamarket@gmail.com</p>
+            </div>
+    </div>
+    </section>
+    <section>
+        <div class="desc">
+            <div class="item-desc">
+                <p>Item Description</p>
+            </div>
+            <div class="price-desc">
+                <p>Price</p>
+            </div>
+            <div class="qty-desc">
+                <p>Quantity</p>
+            </div>
+            <div class="total-desc">
+                <p>Total</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="barang">
+            <div class="barang1">
+                <div class="stuff">
+                    <p class="judul-barang"><b>Web Design</b></p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="stuff1">
+                    <p>$760.00</p>
+                </div>
+                <div class="stuff2">
+                    <p>2</p>
+                </div>
+                <div class="stuff3">
+                    <p><b>$1500.00</b></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="barang">
+            <div class="barang1">
+                <div class="stuff">
+                    <p class="judul-barang"><b>Web Design</b></p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="stuff1">
+                    <p>$760.00</p>
+                </div>
+                <div class="stuff2">
+                    <p>2</p>
+                </div>
+                <div class="stuff3">
+                    <p><b>$1500.00</b></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="barang">
+            <div class="barang1">
+                <div class="stuff">
+                    <p class="judul-barang"><b>Web Design</b></p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="stuff1">
+                    <p>$760.00</p>
+                </div>
+                <div class="stuff2">
+                    <p>2</p>
+                </div>
+                <div class="stuff3">
+                    <p><b>$1500.00</b></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="barang">
+            <div class="barang1">
+                <div class="stuff">
+                    <p class="judul-barang"><b>Web Design</b></p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="stuff1">
+                    <p>$760.00</p>
+                </div>
+                <div class="stuff2">
+                    <p>2</p>
+                </div>
+                <div class="stuff3">
+                    <p><b>$1500.00</b></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="barang">
+            <div class="barang1">
+                <div class="stuff">
+                    <p class="judul-barang"><b>Web Design</b></p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="stuff1">
+                    <p>$760.00</p>
+                </div>
+                <div class="stuff2">
+                    <p>2</p>
+                </div>
+                <div class="stuff3">
+                    <p><b>$1500.00</b></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="down">
+            <div class="space"></div>
+            <div class="total-barang">
+                <div class="sub-total">
+                    <p>Sub Total</p>
+                    <p>Diskon</p>
+                </div>
+                <div class="harga">
+                    <p><b>$8754.00</b></p>
+                    <p><b>$8754.00</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="desc-down">
+            <div class="desc-keterangan">
+                <p class="ketarangan"><b>Keterangan :</b> LUNAS / <s>TIDAK LUNAS</s></p>
+            </div>
+            <div class="desc-total">
+                <div class="total">
+                    <p><b>Total Bayar</b></p>
+                </div>
+                <div class="harga-total">
+                    <p><b>$1364.00</b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="ib">
+        <p><b>Modern Invoice ib :</b> <i><a href="https://www.behance.net/gallery/65996321/Invoice">jpixel 55</a></i></p>
+    </div>
+    <div class="note">
+        <pre>
+          Note    :<u>1. Barang yang sudah diteliti tidak dicat ditular kembali</u>
+                   <u>2. Invoice ini bukan merupakan kartu garansi</u>
+        </pre>
+    </div>
+    <p align="center" style="font-size: 30px; margin: 20px 0; color: #888; font-style: italic;"><b>--Terima kasih sudah berbelanja ditoko kami, silahkan datang lagi!--</b></p>
+    
+</body>
+</html>
